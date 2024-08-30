@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora Simples</title>
+</head>
+<body>
+    <input type="number" id="numero1" placeholder="Primeiro número">
+    <input type="number" id="numero2" placeholder="Segundo número">
+    <select id="operacao">
+        <option value="adicao">Adicionar</option>
+        <option value="subtracao">Subtrair</option>
+        <option value="multiplicacao">Multiplicar</option>
+        <option value="divisao">Dividir</option>
+    </select>
+    <button id="calcular">Calcular</button>
+    <p id="resultado"></p>
+
+    <script>
+        document.getElementById('calcular').addEventListener('click', function() {
+            const num1 = parseFloat(document.getElementById('numero1').value);
+            const num2 = parseFloat(document.getElementById('numero2').value);
+            const operacao = document.getElementById('operacao').value;
+            let resultado;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado = 'Por favor, insira números válidos.';
+            } else {
+                switch (operacao) {
+                    case 'adicao':
+                        resultado = num1 + num2;
+                        break;
+                    case 'subtracao':
+                        resultado = num1 - num2;
+                        break;
+                    case 'multiplicacao':
+                        resultado = num1 * num2;
+                        break;
+                    case 'divisao':
+                        resultado = num2 !== 0 ? num1 / num2 : 'Não é possível dividir por zero.';
+                        break;
+                }
+            }
+
+            document.getElementById('resultado').textContent = `Resultado: ${resultado}`;
+        });
+    </script>
+</body>
+</html>

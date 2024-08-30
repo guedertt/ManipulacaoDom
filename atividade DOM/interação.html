@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Interação com Eventos</title>
+</head>
+<body>
+    <input type="text" id="textoInput" placeholder="Digite algo...">
+    <button id="botaoMostrar">Mostrar Mensagem</button>
+    <p id="mensagem"></p>
+
+    <script>
+        document.getElementById('botaoMostrar').addEventListener('click', function() {
+            const texto = document.getElementById('textoInput').value;
+            const mensagem = texto ? `Você digitou: ${texto}` : 'Por favor, digite algo.';
+            document.getElementById('mensagem').textContent = mensagem;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Galeria de Imagens</title>
+    <style>
+        .miniaturas img {
+            width: 100px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .imagem-destaque img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="miniaturas">
+        <img src="imagem1.jpg" alt="Imagem 1">
+        <img src="imagem2.jpg" alt="Imagem 2">
+        <img src="imagem3.jpg" alt="Imagem 3">
+    </div>
+    <div class="imagem-destaque">
+        <img src="imagem1.jpg" alt="Imagem Destaque" id="imagemGrande">
+    </div>
+
+    <script>
+        const miniaturas = document.querySelectorAll('.miniaturas img');
+        const imagemGrande = document.getElementById('imagemGrande');
+
+        miniaturas.forEach(miniatura => {
+            miniatura.addEventListener('click', function() {
+                imagemGrande.src = this.src;
+                imagemGrande.alt = this.alt;
+            });
+        });
+    </script>
+</body>
+</html>
